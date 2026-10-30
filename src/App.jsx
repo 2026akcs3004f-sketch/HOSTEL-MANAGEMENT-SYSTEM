@@ -6,10 +6,19 @@ const LEGACY_KEYS = ["students", "rooms", "allocations", "payments"];
 
 const styles = {
   auth: {
-    maxWidth: "420px",
-    margin: "60px auto",
-    padding: "24px",
-    fontFamily: "Arial, sans-serif",
+    width: "100%",
+    minHeight: "100vh",
+    margin: "0",
+    padding: "7vh 20px",
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    fontFamily: "Inter, Arial, sans-serif",
+    color: "#fff",
+    background: "linear-gradient(135deg, rgba(20, 43, 35, .86), rgba(33, 75, 59, .52)), url(https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1800&q=85) center/cover",
   },
   form: {
     display: "grid",
@@ -750,7 +759,8 @@ function App() {
 
   if (!isSupabaseConfigured) {
     return (
-      <main style={styles.auth}>
+      <main className="auth-screen" style={styles.auth}>
+<style>{`.auth-screen h1 { color: white; text-shadow: 0 2px 18px rgba(0,0,0,.3); } .auth-screen h2, .auth-screen p { color: white; } .auth-screen input { width: 100%; min-height: 46px; border-radius: 12px; border: 1px solid rgba(255,255,255,.45); padding: 12px 15px; background: rgba(255,255,255,.96); font: inherit; } .auth-screen button { border: 0; border-radius: 12px; padding: 12px 18px; margin: 4px; background: #d7a957; color: #1e3329; font-weight: 700; cursor: pointer; } .auth-screen button:hover { background: #edc675; }`}</style>
         <h1>Connect Supabase</h1>
         <p>
           Create a <code>.env</code> file using <code>.env.example</code>, then
@@ -762,12 +772,14 @@ function App() {
   }
 
   if (!authReady) {
-    return <main style={styles.auth}>Loading your session…</main>;
+    return <main className="auth-screen" style={styles.auth}>
+<style>{`.auth-screen h1 { color: white; text-shadow: 0 2px 18px rgba(0,0,0,.3); } .auth-screen h2, .auth-screen p { color: white; } .auth-screen input { width: 100%; min-height: 46px; border-radius: 12px; border: 1px solid rgba(255,255,255,.45); padding: 12px 15px; background: rgba(255,255,255,.96); font: inherit; } .auth-screen button { border: 0; border-radius: 12px; padding: 12px 18px; margin: 4px; background: #d7a957; color: #1e3329; font-weight: 700; cursor: pointer; } .auth-screen button:hover { background: #edc675; }`}</style>Loading your session…</main>;
   }
 
   if (recoveryMode) {
     return (
-      <main style={styles.auth}>
+      <main className="auth-screen" style={styles.auth}>
+<style>{`.auth-screen h1 { color: white; text-shadow: 0 2px 18px rgba(0,0,0,.3); } .auth-screen h2, .auth-screen p { color: white; } .auth-screen input { width: 100%; min-height: 46px; border-radius: 12px; border: 1px solid rgba(255,255,255,.45); padding: 12px 15px; background: rgba(255,255,255,.96); font: inherit; } .auth-screen button { border: 0; border-radius: 12px; padding: 12px 18px; margin: 4px; background: #d7a957; color: #1e3329; font-weight: 700; cursor: pointer; } .auth-screen button:hover { background: #edc675; }`}</style>
         <h1>Choose a new password</h1>
         <form onSubmit={saveNewPassword} style={styles.form}>
           <input
@@ -788,7 +800,8 @@ function App() {
 
   if (!user) {
     return (
-      <main style={styles.auth}>
+      <main className="auth-screen" style={styles.auth}>
+<style>{`.auth-screen h1 { color: white; text-shadow: 0 2px 18px rgba(0,0,0,.3); } .auth-screen h2, .auth-screen p { color: white; } .auth-screen input { width: 100%; min-height: 46px; border-radius: 12px; border: 1px solid rgba(255,255,255,.45); padding: 12px 15px; background: rgba(255,255,255,.96); font: inherit; } .auth-screen button { border: 0; border-radius: 12px; padding: 12px 18px; margin: 4px; background: #d7a957; color: #1e3329; font-weight: 700; cursor: pointer; } .auth-screen button:hover { background: #edc675; }`}</style>
         <h1 style={{ fontSize: "32px", lineHeight: "1.2", marginBottom: "20px" }}>
           Hostel Management System
         </h1>
@@ -884,16 +897,17 @@ function App() {
   return (
     <div
       style={{
-        maxWidth: "850px",
-        margin: "30px auto",
-        padding: "25px",
-        fontFamily: "Arial, sans-serif",
-        backgroundColor: "#e8f5e9",
-        minHeight: "100vh",
-        borderRadius: "12px",
+        maxWidth: "1100px",
+        margin: "28px auto",
+        padding: "clamp(18px, 4vw, 42px)",
+        fontFamily: "Inter, Arial, sans-serif",
+        background: "#fffdf8",
+        minHeight: "calc(100vh - 56px)",
+        borderRadius: "26px",
+        boxShadow: "0 24px 70px rgba(32, 54, 48, .12)",
       }}
     >
-      <h1>Hostel Management System</h1>
+      <style>{`* { box-sizing: border-box; } body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #e8f0e8 0%, #f6efe4 55%, #e8eee8 100%); color: #24352f; font-family: Inter, Arial, sans-serif; } h1, h2, h3 { color: #23463b; } button { border: 0; border-radius: 10px; padding: 10px 15px; margin: 3px 2px; background: #315e4b; color: white; font-weight: 650; cursor: pointer; } button:hover { background: #234638; } input, select { max-width: 100%; border: 1px solid #d8dfd5; border-radius: 10px; background: white; padding: 12px 14px; font: inherit; } hr { border: 0; border-top: 1px solid #e4e8e0; margin: 20px 0; } .room-photo { width: 100%; height: 190px; object-fit: cover; display: block; border-radius: 16px; margin-bottom: 14px; } .room-card { background: #fff; border: 1px solid #e6e8df; border-radius: 20px; padding: 16px; box-shadow: 0 10px 28px rgba(34, 60, 48, .08); } .hostel-hero { min-height: 230px; display: flex; align-items: end; padding: 26px; margin: 22px 0; border-radius: 22px; color: white; background: linear-gradient(90deg, rgba(18,43,34,.82), rgba(18,43,34,.08)), url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1600&q=85") center 55%/cover; } .hostel-hero h2 { color: white; font-size: clamp(24px, 4vw, 36px); margin: 0; }`}</style>      <h1>Hostel Management System</h1>
       <p>
         Signed in as {user.email}{" "}
         <button onClick={() => supabase.auth.signOut()}>Log out</button>
@@ -936,6 +950,7 @@ function App() {
 
       {page === "Dashboard" && (
         <div>
+          <section className="hostel-hero"><div><h2>Find your place to feel at home</h2><p>Comfortable student living, made simple.</p></div></section>
           <h2>Dashboard</h2>
           <p>Welcome to the Hostel Management System.</p>
 
@@ -1087,7 +1102,8 @@ function App() {
                     );
 
                     return (
-                      <div key={room.roomNumber}>
+                      <div className="room-card" key={room.roomNumber}>
+                        <img className="room-photo" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt={`A welcoming hostel room, Room ${room.roomNumber}`} loading="lazy" />
                         <h3>Room {room.roomNumber}</h3>
                         <p>
                           {room.roomCapacity - occupancy} place(s) available
@@ -1197,7 +1213,7 @@ function App() {
             <p>No rooms added yet.</p>
           ) : (
             rooms.map((room) => (
-              <div key={room.roomNumber}>
+              <div className="room-card" key={room.roomNumber}>
                 <p>
                   Room {room.roomNumber} — Capacity: {room.roomCapacity} —
                   Occupied: {getRoomOccupancy(room.roomNumber)}
